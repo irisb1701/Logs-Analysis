@@ -1,10 +1,17 @@
-#Requirements
--User must have virtual environment running
+# Function
 
--In order to run, user needs
+This project uses PostgreSQL and DB-API code to create a reporting tool that answers the following questions by querying a databse:
 
-	-Vagrant
-	-Virtual Box
+1. What are the most popular three articles of all time?
+2. Who are the most popular article authors of all time?
+3. On which days did more than 1% of requests lead to errors?
+
+In this project we use a Linux-based Virtual Machine and the Psycopg2 Python Module 
+
+# Requirements
+
+-User must have virtual environment(Vagrant) running and a copy of database file 
+	
 Get Vagrant file here: `https://github.com/udacity/fullstack-nanodegree-vm/blob/master/vagrant/Vagrantfile`
 Download database here: `https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip`
 
@@ -12,12 +19,16 @@ Place logsproject.py and newsdata.sql in vagrant directory
  
 If psycopg2 is not already installed, use command `pip install psycopg2`
 
-#How to run
-in terminal make vagrant current directory and run
+# How to run
+
+Open terminal and make FSND-Virtual-Machine/vagrant current directory
+
+Then run:
 
 	`vagrant up` and `vagrant ssh`
 
 use following command to open database:
+
 	`psql news`
 
 enter the following queries to create required views:
