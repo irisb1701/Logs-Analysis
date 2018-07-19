@@ -10,7 +10,7 @@ In this project we use a Linux-based Virtual Machine and the Psycopg2 Python Mod
 
 # Requirements
 
--User must have virtual environment(Vagrant) running and a copy of database file 
+User must have virtual environment(Vagrant) running and a copy of database file 
 	
 Get Vagrant file here: `https://github.com/udacity/fullstack-nanodegree-vm/blob/master/vagrant/Vagrantfile`
 Download database here: `https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip`
@@ -96,5 +96,5 @@ SELECT date, 100*(error::decimal / no_error) AS percentage
 FROM together; 
 `
 
-exit psql and run command: 
+exit psql using CTRL + D and run command: 
 	`python logsproject.py`
