@@ -31,18 +31,21 @@ GROUP BY path
 ORDER BY x DESC
 LIMIT 3 OFFSET 1;
 `
+
 `
 CREATE VIEW articles4 AS 
 SELECT *, 
 CONCAT('/article/', slug) 
 FROM articles;
 `
+
 `
 CREATE VIEW z AS 
 SELECT concat, title, name 
 FROM articles4, authors 
 WHERE articles4.author = authors.id;
 `
+
 `
 CREATE VIEW y AS 
 SELECT path, count(path) AS number_of_views 
@@ -50,6 +53,7 @@ FROM log
 GROUP BY path 
 ORDER BY number_of_views desc;
 `
+
 `
 CREATE VIEW ok AS 
 SELECT time::date AS date, 
@@ -57,7 +61,8 @@ COUNT(status) AS no_error
 FROM log 
 WHERE status = '200 OK' 
 GROUP BY date; 
-`     
+`   
+
 `
 CREATE VIEW error AS 
 SELECT time::date AS date, 
@@ -66,12 +71,14 @@ FROM log
 WHERE status = '404 NOT FOUND' 
 GROUP BY date;
 `
+
 `
 CREATE VIEW together AS 
 SELECT ok.date, error, no_error 
 FROM ok, error 
 WHERE ok.date = error.date;
 `
+
 `
 CREATE VIEW divide AS 
 SELECT date, 100*(error::decimal / no_error) AS percentage 
